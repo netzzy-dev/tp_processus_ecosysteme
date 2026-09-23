@@ -189,3 +189,23 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# MLflow local tracking
+mlruns/
+mlflow.db
+
+# macOS
+.DS_Store
+
+mlruns/
+mlflow.db
