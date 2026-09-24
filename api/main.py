@@ -18,6 +18,11 @@ MODEL_PATH = (
 model = joblib.load(MODEL_PATH)
 
 
+estimator = model.named_steps["modele"]
+
+MODEL_NAME = estimator.__class__.__name__
+MODEL_ALPHA = estimator.alpha
+
 @app.get("/")
 def home():
     return {
@@ -52,5 +57,7 @@ def predict(vehicle: VehicleInput):
     prediction = model.predict(input_data)
 
     return {
-        "predicted_price": round(float(prediction[0]), 2)
+    "prediction": float(prediction),
+    "model_name": MODEL_NAME,
+    "alpha": MODEL_ALPHA
     }

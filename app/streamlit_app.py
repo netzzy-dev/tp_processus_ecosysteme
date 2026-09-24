@@ -71,5 +71,9 @@ if submitted:
     result = response.json()
 
     st.success(
-        f"Prix prédit : {result['predicted_price']:,.2f} $"
+    f"Prix prédit : {result['prediction']:,.2f} $"
+    )
+
+    st.info(
+    f"Modèle utilisé : {result['model_name']} — alpha = {result['alpha']}"
     )
