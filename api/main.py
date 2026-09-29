@@ -57,7 +57,7 @@ def predict(vehicle: VehicleInput):
     prediction = model.predict(input_data)
 
     return {
-    "prediction": float(prediction),
+    "prediction": float(prediction[0]),
     "model_name": MODEL_NAME,
     "alpha": MODEL_ALPHA
     }
