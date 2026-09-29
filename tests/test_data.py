@@ -1,5 +1,16 @@
-import pytest
+from fastapi.testclient import TestClient
+
+from api.main import app
 
 
-def test_code_is_tested():
-    assert False
+client = TestClient(app)
+
+
+def test_home():
+    response = client.get("/")
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "message": "API de prédiction du prix automobile",
+        "model": "Lasso - modèle champion",
+    }
