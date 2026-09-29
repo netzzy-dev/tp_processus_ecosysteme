@@ -23,3 +23,15 @@ jobs:
 
       - name: Executer les tests
         run: python -m pytest
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v4
+
+      - name: Construire l'image FastAPI
+        run: docker build -f Dockerfile.api -t tp-api .
+
+      - name: Construire l'image Streamlit
+        run: docker build -f Dockerfile.streamlit -t tp-streamlit .
